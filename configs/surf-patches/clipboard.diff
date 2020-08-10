@@ -1,0 +1,17 @@
+diff -u surf-2.0.orig/surf.c surf-2.0/surf.c
+--- surf-2.0.orig/surf.c	2020-06-16 10:52:38.739293616 -0000
++++ surf-2.0/surf.c	2020-06-16 10:57:54.147328400 -0000
+@@ -1490,11 +1490,11 @@
+ {
+ 	if (a->b) { /* load clipboard uri */
+ 		gtk_clipboard_request_text(gtk_clipboard_get(
+-		                           GDK_SELECTION_PRIMARY),
++		                           GDK_SELECTION_CLIPBOARD),
+ 		                           pasteuri, c);
+ 	} else { /* copy uri */
+ 		gtk_clipboard_set_text(gtk_clipboard_get(
+-		                       GDK_SELECTION_PRIMARY), c->targeturi
++		                       GDK_SELECTION_CLIPBOARD), c->targeturi
+ 		                       ? c->targeturi : geturi(c), -1);
+ 	}
+ }

@@ -1,0 +1,29 @@
+diff -u surf-2.0.orig/surf.c surf-2.0/surf.c
+--- surf-2.0.orig/surf.c	2020-06-16 10:52:38.739293616 -0000
++++ surf-2.0/surf.c	2020-06-16 11:46:33.233630516 -0000
+@@ -223,6 +223,9 @@
+ static void clicknewwindow(Client *c, const Arg *a, WebKitHitTestResult *h);
+ static void clickexternplayer(Client *c, const Arg *a, WebKitHitTestResult *h);
+ 
++/* Custom */
++static void playvideo(Client *c);
++
+ static char winid[64];
+ static char togglestats[10];
+ static char pagestats[2];
+@@ -1648,6 +1651,15 @@
+ 	spawn(c, &arg);
+ }
+ 
++void
++playvideo(Client *c)
++{
++	Arg a = (Arg)VIDEOPLAY(geturi(c));
++	spawn(c, &a);
++}
++
++
++
+ int
+ main(int argc, char *argv[])
+ {
